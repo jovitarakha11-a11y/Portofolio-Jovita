@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jovita Rakha Nuraini | Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --card-border: #30363d;
+            --text-primary: #f0f6fc;
+            --text-secondary: #8b949e;
+            --accent-color: #58a6ff;
+            --accent-gradient: linear-gradient(135deg, #1f6feb 0%, #a371f7 100%);
+            --badge-bg: rgba(56, 139, 253, 0.15);
+            --badge-text: #58a6ff;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: rgba(13, 17, 23, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--card-border);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: var(--text-primary) !important;
+            letter-spacing: -0.5px;
+        }
+
+        .navbar-brand span {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-link {
+            color: var(--text-secondary) !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color) !important;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 8rem 0 5rem;
+            position: relative;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 300px;
+            background: var(--accent-gradient);
+            filter: blur(150px);
+            opacity: 0.25;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .profile-img-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .profile-img {
+            width: 210px;
+            height: 270px;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 2px solid rgba(88, 166, 255, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        .badge-status {
+            background-color: rgba(46, 160, 67, 0.15);
+            color: #3fb950;
+            border: 1px solid rgba(46, 160, 67, 0.4);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .badge-status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #2ea043;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 8px #2ea043;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-description {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .btn-primary-custom {
+            background: var(--accent-gradient);
+            color: #ffffff;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(31, 111, 235, 0.4);
+            color: #ffffff;
+        }
+
+        .btn-outline-custom {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--card-border);
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: background 0.2s ease, border-color 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-outline-custom:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--text-secondary);
+            color: var(--text-primary);
+        }
+
+        /* Section Styling */
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+        }
+
+        /* Card Styling */
+        .custom-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 2rem;
+            height: 100%;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .custom-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(88, 166, 255, 0.4);
+        }
+
+        .project-badge {
+            background-color: var(--badge-bg);
+            color: var(--badge-text);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            padding: 4px 10px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-right: 6px;
+            margin-bottom: 6px;
+        }
+
+        /* Skill Pills */
+        .skill-pill {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 12px 20px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .skill-pill:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .skill-pill i {
+            font-size: 1.4rem;
+            color: var(--accent-color);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--card-border);
+            padding: 3rem 0;
+            margin-top: 6rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .social-link {
+            color: var(--text-secondary);
+            font-size: 1.25rem;
+            margin: 0 10px;
+            transition: color 0.2s ease;
+        }
+
+        .social-link:hover {
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Jovita<span>.dev</span></a>
+            <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="about">
+        <div class="container">
+            <div class="row align-items-center gy-5">
+                <div class="col-lg-4 text-center">
+                    <div class="profile-img-container">
+                        <img src="foto-jovita.jpeg" alt="Jovita Rakha Nuraini" class="profile-img">
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="badge-status">
+                        <span class="badge-status-dot"></span> Open to Remote Work & Internships
+                    </div>
+                    <h1 class="hero-title">Jovita Rakha Nuraini</h1>
+                    <div class="hero-subtitle">Web Developer & Data Enthusiast</div>
+                    <p class="hero-description">
+                        Information Systems and Technology student at Institut Teknologi dan Bisnis Semarang, focusing on building user-friendly digital solutions, robust web platforms, and data analysis.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="mailto:jovitarakha11@gmail.com" class="btn-primary-custom">
+                            <i class="fa-regular fa-envelope"></i> Contact Me
+                        </a>
+                        <a href="https://github.com/jovitarakha11-a11y" target="_blank" class="btn-outline-custom">
+                            <i class="fa-brands fa-github"></i> GitHub
+                        </a>
+                        <a href="https://www.linkedin.com/in/jovita-rakha-0104a7331" target="_blank" class="btn-outline-custom">
+                            <i class="fa-brands fa-linkedin"></i> LinkedIn
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="py-5" id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">Real-world web applications and systems built from scratch.</p>
+
+            <div class="row g-4">
+                <!-- Project 1: TheAdventureRent -->
+                <div class="col-lg-6">
+                    <div class="custom-card">
+                        <span class="project-badge">First Project — Live</span>
+                        <h3 class="h4 font-weight-bold mb-2">TheAdventureRent</h3>
+                        <p class="text-secondary small mb-3">Hiking Equipment Rental Platform</p>
+                        <p class="text-secondary mb-4">
+                            A fully functional web platform enabling users to browse 16+ hiking gear products, calculate gear requirements based on group size and duration, manage cart items, and complete online bookings with automated booking receipts.
+                        </p>
+                        <div class="mb-4">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Domain & Hosting</span>
+                        </div>
+                        <a href="https://theadventurerent.my.id" target="_blank" class="btn-primary-custom w-100 justify-content-center">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Live Website
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2: SIPERA-TKJT -->
+                <div class="col-lg-6">
+                    <div class="custom-card">
+                        <span class="project-badge">Academic & Departmental System</span>
+                        <h3 class="h4 font-weight-bold mb-2">SIPERA-TKJT</h3>
+                        <p class="text-secondary small mb-3">Facility Loan Management System</p>
+                        <p class="text-secondary mb-4">
+                            An inventory and facility borrowing management application specifically built for the Computer Network and Telecommunications Engineering (TJKT) department at SMK NU Ungaran to streamline equipment requests (LAN cables, projectors, routers, PCs, etc.).
+                        </p>
+                        <div class="mb-4">
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">Bootstrap</span>
+                            <span class="tech-tag">GitHub Pages</span>
+                        </div>
+                        <a href="https://jovitarakha11-a11y.github.io/SIPERA-TKJT/" target="_blank" class="btn-outline-custom w-100 justify-content-center">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> View Project Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="py-5" id="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <p class="section-subtitle">Technologies and tools I work with.</p>
+
+            <div class="row g-3">
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="skill-pill"><i class="fa-brands fa-html5"></i> HTML5</div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="skill-pill"><i class="fa-brands fa-css3-alt"></i> CSS3</div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="skill-pill"><i class="fa-brands fa-js"></i> JavaScript</div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="skill-pill"><i class="fa-brands fa-php"></i> PHP</div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="skill-pill"><i class="fa-brands fa-laravel"></i> Laravel</div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="skill-pill"><i class="fa-solid fa-database"></i> MySQL</div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="skill-pill"><i class="fa-brands fa-python"></i> Python</div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="skill-pill"><i class="fa-brands fa-github"></i> Git & GitHub</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-5" id="contact">
+        <div class="container text-center">
+            <h2 class="section-title">Let's Connect</h2>
+            <p class="section-subtitle">Feel free to reach out for internship or work opportunities.</p>
+            <a href="mailto:jovitarakha11@gmail.com" class="btn-primary-custom text-decoration-none">
+                <i class="fa-regular fa-paper-plane"></i> Send an Email
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <div class="mb-3">
+                <a href="https://github.com/jovitarakha11-a11y" target="_blank" class="social-link"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/jovita-rakha-0104a7331" target="_blank" class="social-link"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:jovitarakha11@gmail.com" class="social-link"><i class="fa-regular fa-envelope"></i></a>
+            </div>
+            <p class="mb-0">&copy; Jovita Rakha Nuraini. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
